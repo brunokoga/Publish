@@ -21,11 +21,11 @@
       },
       {
         "package": "Files",
-        "repositoryURL": "https://github.com/johnsundell/files.git",
+        "repositoryURL": "https://github.com/brunokoga/files.git",
         "state": {
-          "branch": null,
-          "revision": "d273b5b7025d386feef79ef6bad7de762e106eaf",
-          "version": "4.2.0"
+          "branch": "fix/foldername",
+          "revision": "c837641922a5620b03c421756892cb65b475df2a",
+          "version": null
         }
       },
       {
