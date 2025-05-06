@@ -19,6 +19,7 @@ public struct Theme<Site: Website> {
     internal let makeTagDetailsHTML: (TagDetailsPage, PublishingContext<Site>) throws -> HTML?
     internal let resourcePaths: Set<Path>
     internal let creationPath: Path
+    internal let sectionsToIgnore: Set<Site.SectionID>
 
     /// Create a new theme instance.
     /// - parameter factory: The HTML factory to use to create the theme's HTML.
@@ -30,8 +31,10 @@ public struct Theme<Site: Website> {
     public init<T: HTMLFactory>(
         htmlFactory factory: T,
         resourcePaths resources: Set<Path> = [],
+        sectionsToIgnore: Set<Site.SectionID> = [],
         file: StaticString = #file
     ) where T.Site == Site {
+        self.sectionsToIgnore = sectionsToIgnore
         makeIndexHTML = factory.makeIndexHTML
         makeSectionHTML = factory.makeSectionHTML
         makeItemHTML = factory.makeItemHTML

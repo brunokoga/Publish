@@ -66,6 +66,10 @@ private extension HTMLGenerator {
                 fileMode: .foldersAndIndexFiles
             )
             
+            guard theme.sectionsToIgnore.contains(section.id) else {
+                return
+            }
+            
             try await section.items.concurrentForEach { item in
                 try outputHTML(
                     for: item,
