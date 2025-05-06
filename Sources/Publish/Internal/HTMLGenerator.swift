@@ -66,11 +66,8 @@ private extension HTMLGenerator {
                 fileMode: .foldersAndIndexFiles
             )
             
-            guard theme.sectionsToIgnore.contains(section.id) else {
-                return
-            }
-            
             try await section.items.concurrentForEach { item in
+                guard !item.tags.contains("Hidden") else { return }
                 try outputHTML(
                     for: item,
                     indentedBy: indentation,
